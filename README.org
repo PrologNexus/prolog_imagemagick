@@ -1,0 +1,5 @@
+#+TITLE: prolog_magick
+#+AUTHOR: Wouter Beek
+
+Prolog library for inquiring properties of image files through the
+ImageMagick library.
