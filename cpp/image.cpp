@@ -37,6 +37,18 @@ PREDICATE(image_rows, 2)
   return A2 = static_cast<long>(img.rows());
 }
 
+PREDICATE(is_image, 1)
+{
+  try {
+    Magick::Image f {open_image(A1)};
+    PL_succeed;
+  } catch (Magick::ErrorCorruptImage &e) {
+    PL_fail;
+  } catch (Magick::ErrorMissingDelegate &e) {
+    PL_fail;
+  }
+}
+
 /**
  * Returns an image object for the image stores in the file name by
  * the supplied Prolog term.

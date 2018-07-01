@@ -4,7 +4,8 @@
     image_columns/2,    % +File, -Columns
     image_dimensions/3, % +File, -Columns, -Rows
     image_format/2,     % +File, -Format
-    image_rows/2        % +File, -Rows
+    image_rows/2,       % +File, -Rows
+    is_image/1          % +File
   ]
 ).
 
