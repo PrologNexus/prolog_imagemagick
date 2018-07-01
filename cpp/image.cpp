@@ -9,6 +9,7 @@
 
 #include <Magick++.h>
 
+static int magick_error(const std::string msg);
 Magick::Image open_image(term_t name);
 std::string pl_get_file_name(term_t n, int flags);
 
@@ -24,8 +25,9 @@ PREDICATE(image_format, 2)
     Magick::Image f {open_image(A1)};
     return A2 = f.magick().c_str();
   } catch (Magick::ErrorCorruptImage &e) {
-    PlCompound formal("image_error", PlTermv(e.what()));
-    return PL_raise_exception(PlCompound("error", PlTermv(formal, PlTerm())));
+    return magick_error(e.what());
+  } catch (Magick::ErrorMissingDelegate &e) {
+    return magick_error(e.what());
   }
 }
 
@@ -55,6 +57,12 @@ std::string pl_get_file_name(term_t n, int flags)
     PL_fail;
   }
   return string;
+}
+
+static int magick_error(const std::string msg)
+{
+  PlCompound formal("image_error", PlTermv(msg.c_str()));
+  return PL_raise_exception(PlCompound("error", PlTermv(formal, PlTerm())));
 }
 
 extern "C" {
