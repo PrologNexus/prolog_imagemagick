@@ -1,5 +1,5 @@
 :- module(
-  prolog_magic,
+  image,
   [
     image_columns/2,    % +File, -Columns
     image_dimensions/3, % +File, -Columns, -Rows
@@ -8,7 +8,7 @@
   ]
 ).
 
-/** <module> Prolog image
+/** <module> Image support
 
 Prolog library for inquiring properties of image files.
 
@@ -16,7 +16,7 @@ Prolog library for inquiring properties of image files.
 @version 2018
 */
 
-:- use_foreign_library(foreign(prolog_magic)).
+:- use_foreign_library(foreign(image)).
 
 
 

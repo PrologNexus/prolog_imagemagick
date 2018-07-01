@@ -7,7 +7,7 @@ ldflags=`Magick++-config --ldflags`
 libs=`Magick++-config --libs`
 obj=$(src:.cpp=.o)
 rm=rm -f
-sobj=$(PACKSODIR)/prolog_magick.$(SOEXT)
+sobj=$(PACKSODIR)/image.$(SOEXT)
 src=$(wildcard cpp/*.cpp)
 
 all: $(sobj)

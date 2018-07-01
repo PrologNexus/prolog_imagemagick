@@ -20,8 +20,13 @@ PREDICATE(image_columns, 2)
 
 PREDICATE(image_format, 2)
 {
-  Magick::Image img {open_image(A1)};
-  return A2 = img.magick().c_str();
+  try {
+    Magick::Image f {open_image(A1)};
+    return A2 = f.magick().c_str();
+  } catch (Magick::ErrorCorruptImage &e) {
+    PlCompound formal("image_error", PlTermv(e.what()));
+    return PL_raise_exception(PlCompound("error", PlTermv(formal, PlTerm())));
+  }
 }
 
 PREDICATE(image_rows, 2)
@@ -53,7 +58,7 @@ std::string pl_get_file_name(term_t n, int flags)
 }
 
 extern "C" {
-  install_t install_prolog_magick()
+  install_t install_image()
   {
   }
 }
