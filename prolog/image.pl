@@ -38,3 +38,7 @@ image_dimensions(File, Columns, Rows) :-
 
 
 %! image_rows(+File:atom, -Rows:nonneg) is det.
+
+
+
+%! is_image(+File:atom) is semidet.

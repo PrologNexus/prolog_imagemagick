@@ -1,10 +1,9 @@
 # -*- Makefile -*-
 
 cc=g++
-CFLAGS+=-g -std=c++17 -Wall -Werror -Wextra `Magick++-config --cppflags`
+CFLAGS+=-g -std=c++17 -Wall -Werror -Wextra `pkg-config --cflags ImageMagick++`
 ld=g++
-ldflags=`Magick++-config --ldflags`
-libs=`Magick++-config --libs`
+libs=`pkg-config --libs ImageMagick++`
 obj=$(src:.cpp=.o)
 rm=rm -f
 sobj=$(PACKSODIR)/image.$(SOEXT)
@@ -14,7 +13,7 @@ all: $(sobj)
 
 $(sobj): $(obj)
 	mkdir -p $(PACKSODIR)
-	$(ld) $(ARCH) $(LDSOFLAGS) $(ldflags) -o $@ $^ $(libs) $(SWISOLIB)
+	$(ld) $(ARCH) $(LDSOFLAGS) -o $@ $^ $(libs) $(SWISOLIB)
 
 cpp/%.o: cpp/%.cpp
 	$(cc) $(ARCH) $(CFLAGS) -c -o $@ $<
