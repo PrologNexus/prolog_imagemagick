@@ -1,5 +1,29 @@
-#+TITLE: prolog_magick
+#+TITLE: prolog_imagemagick
 #+AUTHOR: Wouter Beek
 
-Prolog library for inquiring properties of image files through the
+SWI-Prolog interface for inquiring properties of image files by the
 ImageMagick library.
+
+* Installation
+
+  1. Install [[http://www.swi-prolog.org][SWI-Prolog]].
+  2. Install [[https://github.com/wouterbeek.com/Prolog-Library-Collection][Prolog-Library-Collection]].
+  3. Install ImageMagick C++:
+
+     - ~dnf install ImageMagick-c++-devel~ for Red Hat-based distro's
+       (e.g., Fedora).
+
+  4. Clone this repository: ~git clone
+     https://github.com/wouterbeek/prolog_imagemagick~
+  5. Compile the C++ sources:
+
+     #+BEGIN_SRC sh
+     $ swipl -s make.pl -g make -t halt
+     #+END_SRC
+
+  6. Add the following lines to your ~.swiplrc~ file:
+
+     #+BEGIN_SRC prolog
+     user:file_search_path(foreign, '/your/path/to/prolog_imagemagick/lib/x86_64-linux').
+     user:file_search_path(library, '/your/path/to/prolog_imagemagick/prolog').
+     #+END_SRC

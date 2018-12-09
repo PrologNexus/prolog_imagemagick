@@ -1,27 +1,26 @@
 # -*- Makefile -*-
 
-cc=g++
-CFLAGS+=-g -std=c++17 -Wall -Werror -Wextra `pkg-config --cflags ImageMagick++`
-ld=g++
-libs=`pkg-config --libs ImageMagick++`
-obj=$(src:.cpp=.o)
-rm=rm -f
-sobj=$(PACKSODIR)/image.$(SOEXT)
-src=$(wildcard cpp/*.cpp)
+CXXFLAGS+=-g -std=c++17 -Wall -Werror -Wextra `pkg-config --cflags ImageMagick++`
+LD=g++
+LIB=`pkg-config --libs ImageMagick++`
+OBJ=$(SRC:.cpp=.o)
+SOBJ=$(PACKSODIR)/image.$(SOEXT)
+SRC=$(wildcard cpp/*.cpp)
 
-all: $(sobj)
+.PHONY: check clean distclean install
 
-$(sobj): $(obj)
+all: $(SOBJ)
+
+$(SOBJ): $(OBJ)
 	mkdir -p $(PACKSODIR)
-	$(ld) $(ARCH) $(LDSOFLAGS) -o $@ $^ $(libs) $(SWISOLIB)
+	$(LD) $(ARCH) $(LDSOFLAGS) -o $@ $^ $(LIB) $(SWISOLIB)
 
 cpp/%.o: cpp/%.cpp
-	$(cc) $(ARCH) $(CFLAGS) -c -o $@ $<
+	$(CXX) $(ARCH) $(CFLAGS) $(CXXFLAGS) -c -o $@ $<
+
+clean:
+distclean:
+	$(RM) $(SOBJ) $(OBJ)
 
 check::
 install::
-clean:
-	$(rm) $(obj)
-
-distclean:
-	$(rm) $(sobj)
