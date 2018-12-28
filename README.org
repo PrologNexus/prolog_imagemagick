@@ -7,7 +7,9 @@ ImageMagick library.
 * Installation
 
   1. Install [[http://www.swi-prolog.org][SWI-Prolog]].
+
   2. Install [[https://github.com/wouterbeek.com/Prolog-Library-Collection][Prolog-Library-Collection]].
+
   3. Install ImageMagick C++:
 
      - ~dnf install ImageMagick-c++-devel~ for Red Hat-based distro's
@@ -15,6 +17,7 @@ ImageMagick library.
 
   4. Clone this repository: ~git clone
      https://github.com/wouterbeek/prolog_imagemagick~
+
   5. Compile the C++ sources:
 
      #+BEGIN_SRC sh
