@@ -1,5 +1,5 @@
 :- module(
-  image,
+  imagemagick,
   [
     image_columns/2,    % +File, -Columns
     image_dimensions/3, % +File, -Columns, -Rows
@@ -9,15 +9,15 @@
   ]
 ).
 
-/** <module> Image support
+/** <module> ImageMagick binding for Prolog
 
-Prolog library for inquiring properties of image files.
+This library allows inquiring properties of image files.
 
-@author Wouter Beek
-@version 2018
 */
 
-:- use_foreign_library(foreign(image)).
+:- use_foreign_library(foreign(imagemagick)).
+
+
 
 
 
