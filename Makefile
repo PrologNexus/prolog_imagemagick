@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 
-CXXFLAGS+=-g -std=c++17 -Wall -Werror -Wextra `pkg-config --cflags ImageMagick++`
+CXXFLAGS+=-g -std=c++17 -Wall -Wextra `pkg-config --cflags ImageMagick++`
 LD=g++
 LIB=`pkg-config --libs ImageMagick++`
 OBJ=$(SRC:.cpp=.o)
