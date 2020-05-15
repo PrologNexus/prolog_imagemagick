@@ -5,4 +5,4 @@ maintainer('Wouter Beek', 'wouter@triply.cc').
 name(prolog_imagemagick).
 packager('Wouter Beek', 'wouter@triply.cc').
 title('Prolog ImageMagick binding').
-version('1.0.1').
+version('1.0.2').
