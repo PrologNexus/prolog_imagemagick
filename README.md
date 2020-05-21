@@ -5,7 +5,9 @@ to be inquired.
 
 ## Dependencies
 
-The ImageMagick library must be installed system-wide:
+  1. Install [SWI-Prolog](https://www.swi-prolog.org).
+
+  2. Install the ImageMagick library:
 
 ```sh
 apt install libmagick++-dev       # Debian, Ubuntu
@@ -14,8 +16,8 @@ dnf install ImageMagick-c++-devel # Fedora, Red Hat
 
 ## Installation
 
-Make the following call in [SWI-Prolog](https://www.swi-prolog.org):
+Install this library:
 
-```pl
-pack_install(prolog_imagemagick).
+```sh
+swipl -g 'pack_install(prolog_imagemagick)' -t halt
 ```
