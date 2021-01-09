@@ -1,4 +1,4 @@
-# Prolog ImageMagick binding
+# Prolog binding for ImageMagick
 
 A Prolog binding for ImageMagick, allowing properties of images files
 to be inquired.
