@@ -15,6 +15,8 @@ This library allows inquiring properties of image files.
 
 */
 
+:- use_module(library(shlib)).
+
 :- use_foreign_library(foreign(imagemagick)).
 
 
